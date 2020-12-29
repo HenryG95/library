@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+}
+#container {
+    position:relative;
+    z-index:1;
+    height:100%;
+}
+
+#form-container {
+    position:absolute;
+    background-color: white;
+    border: 1px solid black;
+    width: 320px;
+    left: 38.25vw;
+    top: 20vh;
+    z-index:2;
+}
+
+#shelf {
+    height:80vh;
+    background-color: brown;
+    border: 1px solid black;
+}
+
+#form {
+    padding: 20px;
+}
+
+#form h1 {
+    text-align: center;
+}
+
+#form input[type=text] {
+    margin-top:10px;
+    margin-bottom:10px;
+    width:100%;
+}
+
+#form input[type=radio] {
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+#form button {
+    margin-top:5px;
+}
+
+#new {
+    margin-top: 5px;
+}

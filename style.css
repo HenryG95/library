@@ -1,55 +1,83 @@
 * {
     box-sizing: border-box;
 }
+
+body {
+    background-color:wheat;
+}
+
+#title {
+    color:firebrick;
+}
 #container {
-    position:relative;
-    z-index:1;
-    height:100%;
+    position: absolute;
 }
 
 #form-container {
-    position:absolute;
-    background-color: white;
-    border: 1px solid black;
+    display:none;
+    background-color:firebrick;
+    height: 380px;
+    width:300.333px;
+    color:maroon;
+    border: 3px solid firebrick;
+    border-radius: 15px;
     width: 320px;
     left: 38.25vw;
     top: 20vh;
-    z-index:2;
 }
 
 #shelf {
     display:grid;
-    grid-template-columns: repeat(auto-fill,25%);
+    width:100%;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap:25px;
+    padding: 25px;
     align-items:center;
     justify-items: center;
-    height:80vh;
-    background-color: brown;
-    border: 1px solid black;
+    height:auto;
 }
 
 #form {
     padding: 20px;
 }
 
-#form h1 {
+#form-container h3 {
     text-align: center;
 }
 
-#form input[type=text] {
+#form-container input[type=text] {
     margin-top:10px;
     margin-bottom:10px;
     width:100%;
 }
 
-#form input[type=radio] {
+#form-container input[type=radio] {
     margin-top:10px;
     margin-bottom:10px;
 }
 
-#form button {
+#form-container button {
     margin-top:5px;
 }
 
 #new {
     margin-top: 5px;
+}
+
+.item {
+    display:flex;
+    height: 380px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: firebrick;
+    color:wheat;
+    border: 3px solid firebrick;
+    border-radius: 15px;
+}
+
+.item button {
+    margin-top: 10px;
+    width:100px;
 }

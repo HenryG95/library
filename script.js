@@ -20,8 +20,8 @@ function deleteItem(array,item) {
 function showBook (item) {
             var div = document.createElement('div');
             div.setAttribute('class','item');
-            div.innerHTML = `<br><h3>${item.name}</h3><br><h3>${item.author}</h3><br>
-                <h3>${item.pages} Pages</h3><br>`;
+            div.innerHTML = `<h3>${item.name}</h3><h3>${item.author}</h3>
+                <h3>${item.pages} Pages</h3>`;
             var buttonDiv = document.createElement('button');
             if(item.read == true) {
                 buttonDiv.textContent = 'Read';
@@ -89,19 +89,20 @@ function showBookLibrary (array) {
 const container = document.querySelector('#container');
 const formContainer = document.querySelector('#form-container');
 const shelf = document.querySelector('#shelf');
-const form = document.querySelector('#form');
 const submit = document.querySelector('#submit');
 const newBook = document.querySelector('#new');
 showBookLibrary(JSON.parse(window.localStorage.getItem('library')));
 
 
-submit.addEventListener('click', () => {
+formContainer.addEventListener('submit', () => {
     var name = document.getElementById("name").value;
     var author = document.getElementById("author").value;
     var pages = document.getElementById("pages").value;
     var read = document.getElementById('yes').checked;
     var book = new Book(name,author,pages,read);
+    console.log(book);
     addBookToLibrary(book);
+    console.log(myLibrary);
     window.localStorage.setItem('library',JSON.stringify(myLibrary));
     showBook(book);
     formContainer.style.display = 'none';

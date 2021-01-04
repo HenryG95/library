@@ -4,27 +4,28 @@
         <link rel='stylesheet' type='text/css' href='style.css' />
     </head>
     <body>
+        <h1 id='title'>myLibrary</h1>
         <div id='container'>
-            <h1 id='title'>myLibrary</h1>
             <div id='shelf'>
-                <div id='form-container'>
+                <form id='form-container'>
                 <h3>New Book</h1>
                 <label for='name'>Name</label><br>
-                <input type='text' name='name' id='name' required><br>
+                <input type='text' name='name' id='name' required /><br>
                 <label for='author'>Author</label><br>
-                <input type='text' name='author' id='author' required><br>
+                <input type='text' name='author' id='author' required /><br>
                 <label for='pages'>Pages</label><br>
-                <input type='text' name='pages' id='pages' required><br>
+                <input type='number' name='pages' id='pages' required /><br>
                 <label for='read'>Read?</label><br>
                 <label for='yes'>Yes</label>
-                <input type='radio' name='read' value='true' id='yes' required>
+                <input type='radio' name='read' value='true' id='yes' required/>
                 <label for='no'>No</label>
-                <input type='radio' name='read' value='false' id='no' required><br>
-                <button id='submit'>Insert Book</button>
-        </div>
-                <button id='new'>Add Book</button>
+                <input type='radio' name='read' value='false' id='no' required/><br>
+                <button id='submit' type='submit'>Insert Book</button>
+                </form>
+                <div id='new'>+</div>
             </div>
         </div>
+        
     </body>
     <script src='script.js'></script>
 </html>

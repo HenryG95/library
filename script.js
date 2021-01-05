@@ -56,6 +56,7 @@ function showBook (item) {
             })
 }
 function showBookLibrary (array) {
+    if(array == []) {}
     array.forEach(item => {
         var div = document.createElement('div');
         div.setAttribute('class','item');
@@ -98,7 +99,11 @@ const formContainer = document.querySelector('#form-container');
 const shelf = document.querySelector('#shelf');
 const submit = document.querySelector('#submit');
 const newBook = document.querySelector('#new');
+if(JSON.parse(window.localStorage.getItem('library')) == null) {
+    console.log('null');
+} else {
 showBookLibrary(JSON.parse(window.localStorage.getItem('library')));
+}
 
 
 formContainer.addEventListener('submit', () => {

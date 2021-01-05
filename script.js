@@ -1,11 +1,17 @@
 let myLibrary = [];
-
 function Book (name,author,pages,read) {
     this.name = name;
     this.author = author;
     this.pages = pages;
     this.read = read;
 };
+function changeRead (array,item) {
+    var support = JSON.parse(window.localStorage.getItem('library'));
+    myLibrary = support;
+    myLibrary[array.indexOf(item)].read = true;
+    window.localStorage.setItem('library',JSON.stringify(myLibrary));
+    
+}
 function addBookToLibrary (book) {
     var support = JSON.parse(window.localStorage.getItem('library'));
     myLibrary = support;
@@ -43,13 +49,12 @@ function showBook (item) {
             })
             buttonDiv.addEventListener('click', () => {
                 buttonDiv.textContent = 'Read';
-                item.read = true;
+                changeRead(JSON.parse(window.localStorage.getItem('library')),item);
                 div.style['background-color'] = 'firebrick';
                 div.style['color'] ='wheat';
 
             })
 }
-
 function showBookLibrary (array) {
     array.forEach(item => {
         var div = document.createElement('div');
@@ -77,7 +82,9 @@ function showBookLibrary (array) {
         })
         buttonDiv.addEventListener('click', () => {
             buttonDiv.textContent = 'Read';
-            item.read = true;
+            console.log(JSON.parse(window.localStorage.getItem('library')));
+            changeRead(array,item);
+            console.log(JSON.parse(window.localStorage.getItem('library')));
             div.style['background-color'] = 'firebrick';
             div.style['color'] ='wheat';
 
@@ -100,15 +107,12 @@ formContainer.addEventListener('submit', () => {
     var pages = document.getElementById("pages").value;
     var read = document.getElementById('yes').checked;
     var book = new Book(name,author,pages,read);
-    console.log(book);
     addBookToLibrary(book);
-    console.log(myLibrary);
     window.localStorage.setItem('library',JSON.stringify(myLibrary));
     showBook(book);
     formContainer.style.display = 'none';
 
 });
-
 newBook.addEventListener('click', () => {
     formContainer.style.display = 'block';
     shelf.removeChild(newBook);

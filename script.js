@@ -100,7 +100,7 @@ const shelf = document.querySelector('#shelf');
 const submit = document.querySelector('#submit');
 const newBook = document.querySelector('#new');
 if(JSON.parse(window.localStorage.getItem('library')) == null) {
-    console.log('null');
+    window.localStorage.setItem(myLibrary);
 } else {
 showBookLibrary(JSON.parse(window.localStorage.getItem('library')));
 }

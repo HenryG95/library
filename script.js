@@ -6,22 +6,22 @@ function Book (name,author,pages,read) {
     this.read = read;
 };
 function changeRead (array,item) {
-    var support = JSON.parse(window.localStorage.getItem('library'));
+    var support = JSON.parse(localStorage.getItem('library'));
     myLibrary = support;
     myLibrary[array.indexOf(item)].read = true;
-    window.localStorage.setItem('library',JSON.stringify(myLibrary));
+    localStorage.setItem('library',JSON.stringify(myLibrary));
     
 }
 function addBookToLibrary (book) {
-    var support = JSON.parse(window.localStorage.getItem('library'));
+    var support = JSON.parse(localStorage.getItem('library'));
     myLibrary = support;
     myLibrary.push(book);
 }
 function deleteItem(array,item) {
-    var support = JSON.parse(window.localStorage.getItem('library'));
+    var support = JSON.parse(localStorage.getItem('library'));
     myLibrary = support;
     myLibrary.splice(array.indexOf(item),1);
-    window.localStorage.setItem('library',JSON.stringify(myLibrary));
+    localStorage.setItem('library',JSON.stringify(myLibrary));
 }
 function showBook (item) {
             var div = document.createElement('div');
@@ -45,11 +45,11 @@ function showBook (item) {
             shelf.appendChild(newBook);
             eraseDiv.addEventListener('click', () => {
                 shelf.removeChild(div);
-                deleteItem(JSON.parse(window.localStorage.getItem('library')),item);
+                deleteItem(JSON.parse(localStorage.getItem('library')),item);
             })
             buttonDiv.addEventListener('click', () => {
                 buttonDiv.textContent = 'Read';
-                changeRead(JSON.parse(window.localStorage.getItem('library')),item);
+                changeRead(JSON.parse(localStorage.getItem('library')),item);
                 div.style['background-color'] = 'firebrick';
                 div.style['color'] ='wheat';
 
@@ -83,9 +83,9 @@ function showBookLibrary (array) {
         })
         buttonDiv.addEventListener('click', () => {
             buttonDiv.textContent = 'Read';
-            console.log(JSON.parse(window.localStorage.getItem('library')));
+            console.log(JSON.parse(localStorage.getItem('library')));
             changeRead(array,item);
-            console.log(JSON.parse(window.localStorage.getItem('library')));
+            console.log(JSON.parse(localStorage.getItem('library')));
             div.style['background-color'] = 'firebrick';
             div.style['color'] ='wheat';
 
@@ -99,10 +99,10 @@ const formContainer = document.querySelector('#form-container');
 const shelf = document.querySelector('#shelf');
 const submit = document.querySelector('#submit');
 const newBook = document.querySelector('#new');
-if(window.localStorage.getItem('library') == null) {
-    window.localStorage.setItem('library',JSON.stringify(myLibrary));
+if(localStorage.getItem('library') == null) {
+    localStorage.setItem('library',JSON.stringify(myLibrary));
 } else {
-showBookLibrary(JSON.parse(window.localStorage.getItem('library')));
+showBookLibrary(JSON.parse(localStorage.getItem('library')));
 }
 
 
@@ -113,7 +113,7 @@ formContainer.addEventListener('submit', () => {
     var read = document.getElementById('yes').checked;
     var book = new Book(name,author,pages,read);
     addBookToLibrary(book);
-    window.localStorage.setItem('library',JSON.stringify(myLibrary));
+    localStorage.setItem('library',JSON.stringify(myLibrary));
     showBook(book);
     formContainer.style.display = 'none';
 

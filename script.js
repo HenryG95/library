@@ -99,7 +99,7 @@ const formContainer = document.querySelector('#form-container');
 const shelf = document.querySelector('#shelf');
 const submit = document.querySelector('#submit');
 const newBook = document.querySelector('#new');
-if(JSON.parse(window.localStorage.getItem('library')) == null) {
+if(window.localStorage.getItem('library') == null) {
     window.localStorage.setItem('library',myLibrary);
 } else {
 showBookLibrary(JSON.parse(window.localStorage.getItem('library')));
